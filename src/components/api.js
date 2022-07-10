@@ -28,12 +28,12 @@ function Data() {
               value={orang}
               onChange={(e) => setorang(e.target.value)}
             />
-            <Pemisah>
-              <h3>Hasil</h3>
-              <input type="text" value={hasil} />
-            </Pemisah>
           </form>
           <button onClick={() => sethasil(val / orang)}>Hasil</button>
+          <Pemisah>
+            <h3>Hasil</h3>
+            <input type="text" value={hasil} />
+          </Pemisah>
         </Context>
       </Wrap>
     </Container>
@@ -77,17 +77,15 @@ const Context = styled.div`
   form {
     display: flex;
     flex-flow: column wrap;
-    position: relative;
   }
 
   button {
-    position: absolute;
-    top: 66%;
     width: 53px;
     height: 32px;
     border-radius: 7px;
     background: #e0e0e0;
     box-shadow: 27px 27px 53px #3a206b, -27px -27px 53px #703ecf;
+    cursor: pointer;
   }
   input {
     width: 30vw;
@@ -96,17 +94,13 @@ const Context = styled.div`
     padding: 7px;
     border-radius: 8px;
 
-    :last-child {
-      width: 3.5vw;
-      align-self: end;
-    }
+    // :last-child {
+    //   width: 3.5vw;
+    //   align-self: end;
+    // }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 1000px) {
       width: 60vw;
-
-      :last-child {
-        width: 15vw;
-      }
     }
   }
 `;
@@ -114,10 +108,20 @@ const Context = styled.div`
 const Pemisah = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-end;
   margin-top: 6vh;
+  justify-content: flex-end;
 
-  h3 {
-    margin: 1.4em;
+  input {
+    width: 3vw;
+    margin-left: 1vw;
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    input {
+      width: 42px;
+      align-self: flex-end;
+      margin-left: 3vw;
+    }
   }
 `;
